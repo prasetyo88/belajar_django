@@ -24,19 +24,21 @@ SECRET_KEY = 'vh%qsluxz_u@m6!ue)e@ip=lxrj-o#0#$em1li+f$rq-crkd1!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
+#ALLOWED_HOSTS = ['127.0.0.1','localhost']
 ALLOWED_HOSTS = []
 
 
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
+    'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.admin',
+    'myapp',
 ]
 
 MIDDLEWARE = [
@@ -75,8 +77,10 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql', 
+        'NAME': 'django_db',                     
+        'USER': 'root',
+        'PASSWORD': 'P@ssw0rd',
     }
 }
 
@@ -118,3 +122,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+SITE_ID = 1
